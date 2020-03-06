@@ -2,7 +2,6 @@
  * 
  */
 package com.strandls.mail;
-
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeoutException;
@@ -18,9 +17,9 @@ import com.strandls.mail.util.PropertyFileUtil;
  */
 public class RabbitMqConnection {
 
-	private static final String EXCHANGE;
-	private static final String QUEUE;
-	private static final String ROUTING_KEY;
+	public static final String EXCHANGE;
+	public static final String QUEUE;
+	public static final String ROUTING_KEY;
 	private static final String HOST;
 	private static final Integer PORT;
 	private static final String USERNAME;
@@ -28,13 +27,13 @@ public class RabbitMqConnection {
 
 	static {
 		Properties props = PropertyFileUtil.fetchProperty("config.properties");
-		EXCHANGE = PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_exchange"));
-		QUEUE = PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_queue"));
-		ROUTING_KEY = PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_routingKey"));
-		HOST = PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_host"));
-		PORT = Integer.parseInt(PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_host")));
-		USERNAME = PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_username"));
-		PASSWORD = PropertyFileUtil.fetchProperty("config", props.getProperty("rabbitmq_password"));
+		EXCHANGE = props.getProperty("rabbitmq_exchange");
+		QUEUE = props.getProperty("rabbitmq_queue");
+		ROUTING_KEY = props.getProperty("rabbitmq_routingKey");
+		HOST = props.getProperty("rabbitmq_host");
+		PORT = Integer.parseInt(props.getProperty("rabbitmq_port"));
+		USERNAME = props.getProperty("rabbitmq_username");
+		PASSWORD = props.getProperty("rabbitmq_password");
 	}
 
 	public Channel setRabbitMQConnetion() throws IOException, TimeoutException {
