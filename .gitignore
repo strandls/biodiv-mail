@@ -15,7 +15,6 @@ out/
 /bootstrap
 /dependencies.xml
 .java-version
-WebContent/META-INF/MANIFEST.MF
 .vscode
 deployOnVenus.sh
 @ci/maven-toolbox
