@@ -30,7 +30,7 @@
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              <#if submitType == "post">posted<#else>removed </#if> observation <#if submitType == "post">to<#else>from </#if> group 
 	                              <#list wherePosted as where>
-	                              <a href="${serverUrl}/group/${where.webaddress}/show" ><i>${where.name}</i></a>									
+	                              <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.name}</i></a>									
 	                              </#list>                              	
                               <#elseif type=="SUGGEST_MAIL">
                               	  Hi ${follower.name},<br><br>
@@ -127,7 +127,7 @@
 	                     </a>
 	                     <#list whatPosted.userGroups as memberOf>
 	                     <div style="height:30px;width:186px;border:1px solid #a1a376;background-color:#d4ece3;float:left;margin:2px 6px">
-	                        <a href="${serverUrl}/group/${memberOf.webaddress}/show" style="text-decoration:none;color:#222222"> 
+	                        <a href="${serverUrl}/group/${memberOf.webAddress}/show" style="text-decoration:none;color:#222222"> 
 	                        <img src="${serverUrl}/biodiv/userGroups/${memberOf.icon}" style="width:30px;height:30px;vertical-align:middle">
 	                        ${memberOf.name} <br>
 	                        </a>   
