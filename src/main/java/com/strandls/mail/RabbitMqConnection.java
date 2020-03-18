@@ -20,6 +20,8 @@ public class RabbitMqConnection {
 	public static final String EXCHANGE;
 	public static final String QUEUE;
 	public static final String ROUTING_KEY;
+	public static final String NOTIFICATION_QUEUE;
+	public static final String NOTIFICATION_ROUTING_KEY;
 	private static final String HOST;
 	private static final Integer PORT;
 	private static final String USERNAME;
@@ -30,6 +32,8 @@ public class RabbitMqConnection {
 		EXCHANGE = props.getProperty("rabbitmq_exchange");
 		QUEUE = props.getProperty("rabbitmq_queue");
 		ROUTING_KEY = props.getProperty("rabbitmq_routingKey");
+		NOTIFICATION_QUEUE = props.getProperty("rabbitmq_n_queue");
+		NOTIFICATION_ROUTING_KEY = props.getProperty("rabbitmq_n_routingKey");
 		HOST = props.getProperty("rabbitmq_host");
 		PORT = Integer.parseInt(props.getProperty("rabbitmq_port"));
 		USERNAME = props.getProperty("rabbitmq_username");
@@ -46,7 +50,9 @@ public class RabbitMqConnection {
 		Channel channel = connection.createChannel();
 		channel.exchangeDeclare(EXCHANGE, "direct");
 		channel.queueDeclare(QUEUE, false, false, false, null);
+		channel.queueDeclare(NOTIFICATION_QUEUE, false, false, false, null);
 		channel.queueBind(QUEUE, EXCHANGE, ROUTING_KEY);
+		channel.queueBind(NOTIFICATION_QUEUE, EXCHANGE, NOTIFICATION_ROUTING_KEY);
 		return channel;
 	}
 }
