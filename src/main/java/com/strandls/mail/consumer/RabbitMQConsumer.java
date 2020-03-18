@@ -32,8 +32,7 @@ public class RabbitMQConsumer {
 	@Inject
 	private Channel channel;
 
-	public void getMessage() throws Exception {
-		/*
+	public void getMessage() throws Exception {		
 		DeliverCallback callback = (consumerTag, delivery) -> {
 			String message = new String(delivery.getBody(), "UTF-8");
 			processMessage(message);
@@ -48,7 +47,6 @@ public class RabbitMQConsumer {
 		channel.basicConsume(PropertyFileUtil.fetchProperty("config.properties", "rabbitmq_n_queue"), true, notificationCallback,
 				consumerTag -> {
 				});
-				*/
 	}
 
 	private void processMessage(String message) {
