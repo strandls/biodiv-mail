@@ -72,7 +72,7 @@
                            </#if>
                            <#if type=="TAGGED_MAIL">
 	                           <p  style="margin:0;padding:0;margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
-	                              ${commentBody?no_esc}
+	                              ${commentBody}
 	                           </p>
                            </#if>
                         </td>
