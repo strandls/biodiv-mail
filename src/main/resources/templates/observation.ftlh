@@ -29,6 +29,21 @@
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              updated a fact.
+	                          <#elseif type=="TAG_UPDATED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              edited tags in the observation listed below
+	                          <#elseif type=="CUSTOM_FIELD_UPDATED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              edited a custom field in the observation listed below	                              
+	                          <#elseif type=="FEATURED_POST">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              featured observation in: <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>
                               <#elseif type=="POST_TO_GROUP">
                               	  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
@@ -53,7 +68,7 @@
 	                              Your  data download request has been processed. The download link will be visible once you log in to your profile.  
                               </#if>
                            </p>
-                           <#if type=="COMMENT_POST">
+                           <#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST">
 	                           <p  style="margin:0;padding:0;margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
 	                              ${commentBody}
 	                           </p>
