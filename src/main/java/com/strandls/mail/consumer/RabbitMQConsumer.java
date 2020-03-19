@@ -80,7 +80,7 @@ public class RabbitMQConsumer {
 				observationService.sendObservationPostToGroupMail(info);
 				break;
 			case FACT_UPDATED:
-				observationService.sendObservationPostToGroupMail(info);
+				observationService.sendObservationFactUpdatedMail(info);
 				break;
 			default:
 				logger.error("Invalid mail type: {}", info.getType());
