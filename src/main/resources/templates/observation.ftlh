@@ -30,7 +30,7 @@
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              <#if submitType == "post">posted<#else>removed </#if> observation <#if submitType == "post">to<#else>from </#if> group 
 	                              <#list wherePosted as where>
-	                              <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.name}</i></a>									
+	                              <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>									
 	                              </#list>                              	
                               <#elseif type=="SUGGEST_MAIL">
                               	  Hi ${follower.name},<br><br>
