@@ -28,10 +28,8 @@
                               	  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
-	                              <#if submitType == "post">posted<#else>removed </#if> observation <#if submitType == "post">to<#else>from </#if> group 
-	                              <#list wherePosted as where>
-	                              <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>									
-	                              </#list>                              	
+	                              <#if submitType == "post">posted<#else>removed </#if> observation <#if submitType == "post">to<#else>from </#if> group
+	                              &nbsp;<a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>
                               <#elseif type=="SUGGEST_MAIL">
                               	  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
