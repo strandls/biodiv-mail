@@ -24,6 +24,11 @@
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              added a comment to the page listed below.
+	                          <#if type=="FACT_UPDATED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
+	                              updated a fact.
                               <#elseif type=="POST_TO_GROUP">
                               	  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					

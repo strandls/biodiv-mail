@@ -44,4 +44,9 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 		ThreadUtil.startThread(configuration, "observation.ftlh", "Download request", info);
 	}
 
+	@Override
+	public void sendObservationFactUpdatedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Fact updated", info);
+	}
+
 }

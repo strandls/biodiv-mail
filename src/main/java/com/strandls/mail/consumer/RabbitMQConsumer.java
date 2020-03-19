@@ -11,10 +11,10 @@ import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.model.NotificationInfo;
 import com.strandls.mail.service.ObservationMailService;
 import com.strandls.mail.service.UserMailService;
-import com.strandls.mail.util.AppUtil;
-import com.strandls.mail.util.AppUtil.MAIL_TYPE;
 import com.strandls.mail.util.NotificationUtil;
 import com.strandls.mail.util.PropertyFileUtil;
+import com.strandls.mail_utility.util.AppUtil;
+import com.strandls.mail_utility.model.EnumModel.MAIL_TYPE;
 
 public class RabbitMQConsumer {
 
@@ -77,6 +77,9 @@ public class RabbitMQConsumer {
 				observationService.sendObservationTaggedMail(info);
 				break;
 			case POST_TO_GROUP:
+				observationService.sendObservationPostToGroupMail(info);
+				break;
+			case FACT_UPDATED:
 				observationService.sendObservationPostToGroupMail(info);
 				break;
 			default:
