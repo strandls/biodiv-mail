@@ -82,6 +82,39 @@ public class RabbitMQConsumer {
 			case FACT_UPDATED:
 				observationService.sendObservationFactUpdatedMail(info);
 				break;
+			case AGREED_SPECIES:
+				observationService.sendObservationAgreedSpeciesMail(info);
+				break;
+			case REMOVED_SPECIES:
+				observationService.sendObservationRemovedSpeciesMail(info);
+				break;
+			case CUSTOM_FIELD_UPDATED: 
+				observationService.sendObservationCustomFieldUpdatedMail(info);
+				break;
+			case FEATURED_POST: 
+				observationService.sendObservationFeaturedMail(info);
+				break;
+			case FEATURED_POST_IBP:
+				observationService.sendObservationFeaturedIBPMail(info);
+				break;
+			case OBSERVATION_ADDED:
+				observationService.sendObservationAddedMail(info);
+				break;
+			case OBSERVATION_FLAGGED: 
+				observationService.sendObservationFlaggedMail(info);
+				break;
+			case OBSERVATION_LOCKED:
+				observationService.sendObservationLockedMail(info);
+				break;
+			case OBSERVATION_UNLOCKED:
+				observationService.sendObservationUnlockedMail(info);
+				break;
+			case OBSERVATION_UPDATED:
+				observationService.sendObservationUpdatedMail(info);
+				break;
+			case TAG_UPDATED:
+				observationService.sendObservationTagUpdatedMail(info);
+				break;
 			default:
 				logger.error("Invalid mail type: {}", info.getType());
 			}

@@ -49,4 +49,70 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 		ThreadUtil.startThread(configuration, "observation.ftlh", "Fact updated", info);
 	}
 
+	@Override
+	public void sendObservationAgreedSpeciesMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationRemovedSpeciesMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationCustomFieldUpdatedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationFeaturedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationFeaturedIBPMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationAddedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationFlaggedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationLockedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationUpdatedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationUnlockedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationTagUpdatedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -38,12 +38,70 @@
                           		  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
-	                              edited a custom field in the observation listed below	                              
+	                              edited a custom field in the observation listed below
+	                          <#elseif type=="OBSERVATION_ADDED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              added the following observation:
+	                          <#elseif type=="OBSERVATION_UPDATED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              updated the following observation
+	                          <#elseif type=="OBSERVATION_LOCKED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              validated and locked species name  <#if givenName.isScientificName == true>
+		                          <#if givenName.isScientificName == true>
+			                          <#if givenName.id != 0>
+			                          	<a href="${serverUrl}/species/show/${givenName.id?c}" > <i> ${givenName.name} </i></a>
+			                          <#else>
+			                          	<i> ${givenName.name} </i>	
+			                          </#if> 
+		                          <#else>
+		                          	${givenName.name}
+		                          </#if>     
+	                          <#elseif type=="OBSERVATION_UNLOCKED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              unlocked species name  <#if givenName.isScientificName == true>
+		                          <#if givenName.isScientificName == true>
+			                          <#if givenName.id != 0>
+			                          	<a href="${serverUrl}/species/show/${givenName.id?c}" > <i> ${givenName.name} </i></a>
+			                          <#else>
+			                          	<i> ${givenName.name} </i>	
+			                          </#if> 
+		                          <#else>
+		                          	${givenName.name}
+		                          </#if>          
 	                          <#elseif type=="FEATURED_POST">
                           		  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
-	                              featured observation in: <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>
+	                              featured observation in: <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>             
+	                          <#elseif type=="FEATURED_POST_IBP">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              featured observation in: India Biodiversity Portal             
+	                          <#elseif type=="OBSERVATION_FLAGGED">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              flagged your observation             
+	                          <#elseif type=="AGREED_SPECIES">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              agreed on species name
+	                          <#elseif type=="REMOVED_SPECIES">
+                          		  Hi ${follower.name},<br><br>
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
+	                              removed species name
                               <#elseif type=="POST_TO_GROUP">
                               	  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
@@ -68,12 +126,12 @@
 	                              Your  data download request has been processed. The download link will be visible once you log in to your profile.  
                               </#if>
                            </p>
-                           <#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST">
+                           <#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
 	                           <p  style="margin:0;padding:0;margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
 	                              ${commentBody}
 	                           </p>
                            </#if>
-                           <#if type=="SUGGEST_MAIL">
+                           <#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES">
 		                       <p  style="margin:0;padding:5px;margin-bottom:2px;font-weight:normal;font-size:14px;line-height:1">					
 		                          Given name is : 
 		                          <#if givenName.isScientificName == true>
