@@ -51,50 +51,37 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 
 	@Override
 	public void sendObservationAgreedSpeciesMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Species name suggested", info);		
 	}
 
 	@Override
 	public void sendObservationRemovedSpeciesMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Species name deleted", info);
 	}
 
 	@Override
 	public void sendObservationCustomFieldUpdatedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Custom field edited", info);
 	}
 
 	@Override
 	public void sendObservationFeaturedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void sendObservationFeaturedIBPMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Featured observation", info);
 	}
 
 	@Override
 	public void sendObservationAddedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation added", info);		
 	}
 
 	@Override
 	public void sendObservationFlaggedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation flagged", info);		
 	}
 
 	@Override
 	public void sendObservationLockedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Validated and locked species name", info);		
 	}
 
 	@Override
@@ -105,14 +92,12 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 
 	@Override
 	public void sendObservationUnlockedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Unlocked species name", info);			
 	}
 
 	@Override
 	public void sendObservationTagUpdatedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation tag updated", info);
 	}
 
 }

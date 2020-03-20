@@ -95,7 +95,7 @@ public class RabbitMQConsumer {
 				observationService.sendObservationFeaturedMail(info);
 				break;
 			case FEATURED_POST_IBP:
-				observationService.sendObservationFeaturedIBPMail(info);
+				observationService.sendObservationFeaturedMail(info);
 				break;
 			case OBSERVATION_ADDED:
 				observationService.sendObservationAddedMail(info);

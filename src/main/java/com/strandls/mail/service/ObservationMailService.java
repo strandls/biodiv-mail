@@ -14,7 +14,6 @@ public interface ObservationMailService {
 	void sendObservationRemovedSpeciesMail(MailInfo info);
 	void sendObservationCustomFieldUpdatedMail(MailInfo info);
 	void sendObservationFeaturedMail(MailInfo info);
-	void sendObservationFeaturedIBPMail(MailInfo info);
 	void sendObservationAddedMail(MailInfo info);
 	void sendObservationFlaggedMail(MailInfo info);
 	void sendObservationLockedMail(MailInfo info);
