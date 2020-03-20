@@ -53,7 +53,7 @@
                           		  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
-	                              validated and locked species name  <#if givenName.isScientificName == true>
+	                              validated and locked species name
 		                          <#if givenName.isScientificName == true>
 			                          <#if givenName.id != 0>
 			                          	<a href="${serverUrl}/species/show/${givenName.id?c}" > <i> ${givenName.name} </i></a>
@@ -67,7 +67,7 @@
                           		  Hi ${follower.name},<br><br>
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
-	                              unlocked species name  <#if givenName.isScientificName == true>
+	                              unlocked species name 
 		                          <#if givenName.isScientificName == true>
 			                          <#if givenName.id != 0>
 			                          	<a href="${serverUrl}/species/show/${givenName.id?c}" > <i> ${givenName.name} </i></a>
