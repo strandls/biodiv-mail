@@ -132,7 +132,7 @@
 	                           </p>
                            </#if>
                            <#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES">
-                                <#if givenName??>
+                                <#if (givenName.isScientificName)?? && (givenName.name)?? && (givenName.id)??>
 		                       <p  style="margin:0;padding:5px;margin-bottom:2px;font-weight:normal;font-size:14px;line-height:1">					
 		                          Given name is : 
 		                          <#if givenName.isScientificName == true>
