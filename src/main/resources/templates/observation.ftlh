@@ -132,6 +132,7 @@
 	                           </p>
                            </#if>
                            <#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES">
+                                <#if givenName??>
 		                       <p  style="margin:0;padding:5px;margin-bottom:2px;font-weight:normal;font-size:14px;line-height:1">					
 		                          Given name is : 
 		                          <#if givenName.isScientificName == true>
@@ -145,6 +146,7 @@
 		                          </#if> 
 		                       </p>
 		                       <p></p>
+                                </#if>
                            </#if>
                            <#if type=="TAGGED_MAIL">
 	                           <p  style="margin:0;padding:0;margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
