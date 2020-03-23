@@ -95,7 +95,7 @@
 	                           <tbody>
 	                              <tr style="margin:0;padding:0;">
 	                                 <td style="margin:0;padding:2px;">				
-	                                    <a href="${serverUrl}/observation/show/${whatPosted.id?c}" ><img src=${whatPosted.icon} style="margin:0;padding:0;max-width:130px;max-height:130px;display:inline-block;vertical-align:middle"></a>
+	                                    <a href="${serverUrl}/observation/show/${whatPosted.id?c}" ><img src="https://venus.strandls.com/files-api/api/get/observations${whatPosted.icon}" style="margin:0;padding:0;max-width:130px;max-height:130px;display:inline-block;vertical-align:middle"></a>
 	                                 </td>
 	                              </tr>
 	                           </tbody>
