@@ -62,7 +62,7 @@ public class MailUtil {
         props.put("mail.debug.auth", "false");
         props.setProperty( "mail.pop3.socketFactory.fallback", "false");
 		
-		Session session = Session.getDefaultInstance(props, null);
+		Session session = Session.getInstance(props);
 
 		MimeMessage message = new MimeMessage(session);
 		List<InternetAddress> address = new ArrayList<>();
