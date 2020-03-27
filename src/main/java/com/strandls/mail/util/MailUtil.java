@@ -50,17 +50,10 @@ public class MailUtil {
 	public void sendMail() throws MessagingException, AddressException {
 		Properties props = new Properties();
 		props.setProperty("mail.smtp.host", smtpHost);
-		props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.setProperty("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.port", smtpPort);
         props.setProperty("mail.smtp.socketFactory.port", smtpPort);
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.auth", "false");
         props.put("mail.debug", "true");
-        props.put("mail.store.protocol", "pop3");
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.debug.auth", "false");
-        props.setProperty( "mail.pop3.socketFactory.fallback", "false");
 		
 		Session session = Session.getInstance(props);
 
