@@ -55,18 +55,14 @@ public class MailUtil {
         props.setProperty("mail.smtp.port", smtpPort);
         props.setProperty("mail.smtp.socketFactory.port", smtpPort);
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.auth", "false");
         props.put("mail.debug", "true");
         props.put("mail.store.protocol", "pop3");
         props.put("mail.transport.protocol", "smtp");
-        props.put("mail.debug.auth", "true");
+        props.put("mail.debug.auth", "false");
         props.setProperty( "mail.pop3.socketFactory.fallback", "false");
 		
-		Session session = Session.getDefaultInstance(props, new Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		});
+		Session session = Session.getDefaultInstance(props, null);
 
 		MimeMessage message = new MimeMessage(session);
 		List<InternetAddress> address = new ArrayList<>();
