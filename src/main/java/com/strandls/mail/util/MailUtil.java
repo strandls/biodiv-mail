@@ -15,13 +15,13 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class MailUtil {
-	
+
 	private String[] to;
 	private String[] bcc;
 	private String subject;
 	private String text;
 	private boolean isHtml;
-	
+
 	private final static String username;
 	private final static String password;
 	private final static String mailSenderEmail;
@@ -36,9 +36,10 @@ public class MailUtil {
 		smtpHost = prop.getProperty("mail_smtp_host");
 		smtpPort = prop.getProperty("mail_smtp_port");
 	}
-	
-	public MailUtil() {}
-	
+
+	public MailUtil() {
+	}
+
 	public MailUtil(String[] to, String[] bcc, String subject, String text, boolean isHtml) {
 		this.to = to;
 		this.bcc = bcc;
@@ -51,14 +52,17 @@ public class MailUtil {
 		Properties props = new Properties();
 		props.setProperty("mail.smtp.host", smtpHost);
         props.setProperty("mail.smtp.port", smtpPort);
-		props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.setProperty("mail.smtp.socketFactory.fallback", "false");
-        props.setProperty("mail.smtp.socketFactory.port", smtpPort);
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.auth", "false");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.trust", "*");
         props.put("mail.debug", "true");
 		
-		Session session = Session.getInstance(props);
+		Session session = Session.getInstance(props, new Authenticator() {
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
 
 		MimeMessage message = new MimeMessage(session);
 		List<InternetAddress> address = new ArrayList<>();
