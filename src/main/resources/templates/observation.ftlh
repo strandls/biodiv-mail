@@ -21,37 +21,37 @@
                            <p style="margin:0;padding:0;margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
                               <#if type=="COMMENT_POST">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              added a comment to the page listed below.
 	                          <#elseif type=="FACT_UPDATED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              updated a fact.
 	                          <#elseif type=="TAG_UPDATED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              edited tags in the observation listed below
 	                          <#elseif type=="CUSTOM_FIELD_UPDATED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              edited a custom field in the observation listed below
 	                          <#elseif type=="OBSERVATION_ADDED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              added the following observation:
 	                          <#elseif type=="OBSERVATION_UPDATED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              updated the following observation
 	                          <#elseif type=="OBSERVATION_LOCKED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              validated and locked species name
 		                          <#if givenName.isScientificName == true>
@@ -65,7 +65,7 @@
 		                          </#if>     
 	                          <#elseif type=="OBSERVATION_UNLOCKED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              unlocked species name 
 		                          <#if givenName.isScientificName == true>
@@ -79,43 +79,43 @@
 		                          </#if>          
 	                          <#elseif type=="FEATURED_POST">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              featured observation in: <a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>             
 	                          <#elseif type=="FEATURED_POST_IBP">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              featured observation in: India Biodiversity Portal             
 	                          <#elseif type=="OBSERVATION_FLAGGED">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              flagged your observation             
 	                          <#elseif type=="AGREED_SPECIES">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              agreed on species name
 	                          <#elseif type=="REMOVED_SPECIES">
                           		  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>
 	                              removed species name
                               <#elseif type=="POST_TO_GROUP">
                               	  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              <#if submitType == "post">posted<#else>removed </#if> observation <#if submitType == "post">to<#else>from </#if> group
 	                              &nbsp;<a href="${serverUrl}/group/${where.webAddress}/show" ><i>${where.userGroupName}</i></a>
                               <#elseif type=="SUGGEST_MAIL">
                               	  Hi ${follower.name},<br><br>
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              suggested species name <span>${recoVote}</span>
 	                          <#elseif type=="TAGGED_MAIL">	                          	  
                               	  Hi ${follower.name},<br><br>                         	
-	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="${serverUrl}/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
+	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" ><img src="https://static.indiabiodiversity.org/biodiv/users/${whoPosted.icon}" style="margin:0;padding:0;max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>					
 	                              <a href="${serverUrl}/user/show/${whoPosted.id?c}" > ${whoPosted.name}</a>		
 	                              has tagged you in a comment on the page listed below.
 	                          <#elseif type=="DOWNLOAD_MAIL">
@@ -173,7 +173,7 @@
 	                           <tbody>
 	                              <tr style="margin:0;padding:0;">
 	                                 <td style="margin:0;padding:2px;">				
-	                                    <a href="${serverUrl}/observation/show/${whatPosted.id?c}" ><img src="${serverUrl}/files-api/api/get/observations${whatPosted.icon}?t=1" style="margin:0;padding:0;max-width:130px;max-height:130px;display:inline-block;vertical-align:middle"></a>
+	                                    <a href="${serverUrl}/observation/show/${whatPosted.id?c}" ><img src="https://static.indiabiodiversity.org/files-api/api/get/observations${whatPosted.icon}?t=1" style="margin:0;padding:0;max-width:130px;max-height:130px;display:inline-block;vertical-align:middle"></a>
 	                                 </td>
 	                              </tr>
 	                           </tbody>
@@ -206,7 +206,7 @@
 	                     <#list whatPosted.userGroups as memberOf>
 	                     <div style="height:30px;width:186px;border:1px solid #a1a376;background-color:#d4ece3;float:left;margin:2px 6px">
 	                        <a href="${serverUrl}/group/${memberOf.webAddress}/show" style="text-decoration:none;color:#222222"> 
-	                        <img src="${serverUrl}/biodiv/userGroups/${memberOf.icon}" style="width:30px;height:30px;vertical-align:middle">
+	                        <img src="https://static.indiabiodiversity.org/biodiv/userGroups/${memberOf.icon}" style="width:30px;height:30px;vertical-align:middle">
 	                        ${memberOf.name} <br>
 	                        </a>   
 	                     </div>
