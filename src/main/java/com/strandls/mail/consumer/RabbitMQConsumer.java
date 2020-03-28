@@ -51,6 +51,7 @@ public class RabbitMQConsumer {
 
 	private void processMessage(String message) {
 		try {
+			System.out.println("***** Message: " + message + " *****");
 			MailInfo info = mapper.readValue(message, MailInfo.class);
 
 			MAIL_TYPE type = AppUtil.getMailType(info.getType());
