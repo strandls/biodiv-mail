@@ -54,7 +54,9 @@ public class MailUtil {
         props.setProperty("mail.smtp.port", smtpPort);
         props.put("mail.smtp.starttls.enable", "true");  
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.ssl.trust", "*");
+        props.put("mail.smtp.ssl.trust", "*"); 
+        props.put("mail.smtp.socketFactory.class",    
+                "javax.net.ssl.SSLSocketFactory");
         props.put("mail.debug", "true");
 		
 		Session session = Session.getInstance(props, new Authenticator() {
