@@ -15,15 +15,16 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class MailUtil {
-	
+
 	private String[] to;
 	private String[] bcc;
 	private String subject;
 	private String text;
 	private boolean isHtml;
-	
+
 	private final static String username;
 	private final static String password;
+	private final static String mailSenderEmail;
 	private final static String smtpHost;
 	private final static String smtpPort;
 
@@ -31,12 +32,14 @@ public class MailUtil {
 		Properties prop = PropertyFileUtil.fetchProperty("config.properties");
 		username = prop.getProperty("mail_smtp_username");
 		password = prop.getProperty("mail_smtp_password");
+		mailSenderEmail = prop.getProperty("mail_sender_email");
 		smtpHost = prop.getProperty("mail_smtp_host");
 		smtpPort = prop.getProperty("mail_smtp_port");
 	}
-	
-	public MailUtil() {}
-	
+
+	public MailUtil() {
+	}
+
 	public MailUtil(String[] to, String[] bcc, String subject, String text, boolean isHtml) {
 		this.to = to;
 		this.bcc = bcc;
@@ -48,19 +51,15 @@ public class MailUtil {
 	public void sendMail() throws MessagingException, AddressException {
 		Properties props = new Properties();
 		props.setProperty("mail.smtp.host", smtpHost);
-		props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.setProperty("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.port", smtpPort);
-        props.setProperty("mail.smtp.socketFactory.port", smtpPort);
-        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.enable", "true");  
         props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.trust", "*"); 
+        //props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.debug", "true");
-        props.put("mail.store.protocol", "pop3");
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.debug.auth", "true");
-        props.setProperty( "mail.pop3.socketFactory.fallback", "false");
 		
-		Session session = Session.getDefaultInstance(props, new Authenticator() {
+		Session session = Session.getInstance(props, new Authenticator() {
+			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);
 			}
@@ -77,7 +76,7 @@ public class MailUtil {
 		}
 		InternetAddress[] addresses = new InternetAddress[address.size()];
 		InternetAddress[] bccAddresses = new InternetAddress[address.size()];
-		message.setFrom(new InternetAddress(username));
+		message.setFrom(new InternetAddress(mailSenderEmail));
 		message.addRecipients(Message.RecipientType.TO, address.toArray(addresses));
 		if (bccAddress.size() > 0) {
 			message.addRecipients(Message.RecipientType.BCC, bccAddress.toArray(bccAddresses));			

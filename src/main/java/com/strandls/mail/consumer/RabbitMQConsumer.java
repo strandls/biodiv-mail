@@ -8,11 +8,13 @@ import com.google.inject.Inject;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
 import com.strandls.mail.model.MailInfo;
+import com.strandls.mail.model.NotificationInfo;
 import com.strandls.mail.service.ObservationMailService;
 import com.strandls.mail.service.UserMailService;
-import com.strandls.mail.util.AppUtil;
-import com.strandls.mail.util.AppUtil.MAIL_TYPE;
+import com.strandls.mail.util.NotificationUtil;
 import com.strandls.mail.util.PropertyFileUtil;
+import com.strandls.mail_utility.util.AppUtil;
+import com.strandls.mail_utility.model.EnumModel.MAIL_TYPE;
 
 public class RabbitMQConsumer {
 
@@ -21,25 +23,35 @@ public class RabbitMQConsumer {
 
 	@Inject
 	ObservationMailService observationService;
+	
+	@Inject 
+	ObjectMapper mapper;
 
 	private static final Logger logger = LoggerFactory.getLogger(RabbitMQConsumer.class);
 
 	@Inject
 	private Channel channel;
 
-	public void getMessage() throws Exception {
+	public void getMessage() throws Exception {		
 		DeliverCallback callback = (consumerTag, delivery) -> {
 			String message = new String(delivery.getBody(), "UTF-8");
 			processMessage(message);
 		};
+		DeliverCallback notificationCallback = (consumerTag, delivery) -> {
+			String message = new String(delivery.getBody(), "UTF-8");
+			processNotification(message);
+		};
 		channel.basicConsume(PropertyFileUtil.fetchProperty("config.properties", "rabbitmq_queue"), true, callback,
+				consumerTag -> {
+				});
+		channel.basicConsume(PropertyFileUtil.fetchProperty("config.properties", "rabbitmq_n_queue"), true, notificationCallback,
 				consumerTag -> {
 				});
 	}
 
 	private void processMessage(String message) {
 		try {
-			ObjectMapper mapper = new ObjectMapper();
+			System.out.println("***** Message: " + message + " *****");
 			MailInfo info = mapper.readValue(message, MailInfo.class);
 
 			MAIL_TYPE type = AppUtil.getMailType(info.getType());
@@ -68,11 +80,59 @@ public class RabbitMQConsumer {
 			case POST_TO_GROUP:
 				observationService.sendObservationPostToGroupMail(info);
 				break;
+			case FACT_UPDATED:
+				observationService.sendObservationFactUpdatedMail(info);
+				break;
+			case AGREED_SPECIES:
+				observationService.sendObservationAgreedSpeciesMail(info);
+				break;
+			case REMOVED_SPECIES:
+				observationService.sendObservationRemovedSpeciesMail(info);
+				break;
+			case CUSTOM_FIELD_UPDATED: 
+				observationService.sendObservationCustomFieldUpdatedMail(info);
+				break;
+			case FEATURED_POST: 
+				observationService.sendObservationFeaturedMail(info);
+				break;
+			case FEATURED_POST_IBP:
+				observationService.sendObservationFeaturedMail(info);
+				break;
+			case OBSERVATION_ADDED:
+				observationService.sendObservationAddedMail(info);
+				break;
+			case OBSERVATION_FLAGGED: 
+				observationService.sendObservationFlaggedMail(info);
+				break;
+			case OBSERVATION_LOCKED:
+				observationService.sendObservationLockedMail(info);
+				break;
+			case OBSERVATION_UNLOCKED:
+				observationService.sendObservationUnlockedMail(info);
+				break;
+			case OBSERVATION_UPDATED:
+				observationService.sendObservationUpdatedMail(info);
+				break;
+			case TAG_UPDATED:
+				observationService.sendObservationTagUpdatedMail(info);
+				break;
 			default:
 				logger.error("Invalid mail type: {}", info.getType());
 			}
 		} catch (Exception ex) {
-			logger.error("Could not resolve: {}", message);
+			logger.error("Could not resolve: {}", ex.getMessage());
+		}
+	}
+	
+	private void processNotification(String message) {
+		try {
+			NotificationInfo info = mapper.readValue(message, NotificationInfo.class);
+			if (info != null) {
+				NotificationUtil notification = new NotificationUtil();
+				notification.sendNotification(message);				
+			}
+		} catch (Exception ex) {
+			logger.error("Could not resolve: {}", ex.getMessage());
 		}
 	}
 

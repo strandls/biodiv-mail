@@ -9,5 +9,16 @@ public interface ObservationMailService {
 	void sendObservationSuggestedMail(MailInfo info);
 	void sendObservationCommentedMail(MailInfo info);
 	void sendObservationDownloadMail(MailInfo info);
+	void sendObservationFactUpdatedMail(MailInfo info);
+	void sendObservationAgreedSpeciesMail(MailInfo info);
+	void sendObservationRemovedSpeciesMail(MailInfo info);
+	void sendObservationCustomFieldUpdatedMail(MailInfo info);
+	void sendObservationFeaturedMail(MailInfo info);
+	void sendObservationAddedMail(MailInfo info);
+	void sendObservationFlaggedMail(MailInfo info);
+	void sendObservationLockedMail(MailInfo info);
+	void sendObservationUpdatedMail(MailInfo info);
+	void sendObservationUnlockedMail(MailInfo info);
+	void sendObservationTagUpdatedMail(MailInfo info);
 
 }

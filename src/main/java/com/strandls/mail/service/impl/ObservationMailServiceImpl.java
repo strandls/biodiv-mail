@@ -44,4 +44,60 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 		ThreadUtil.startThread(configuration, "observation.ftlh", "Download request", info);
 	}
 
+	@Override
+	public void sendObservationFactUpdatedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Fact updated", info);
+	}
+
+	@Override
+	public void sendObservationAgreedSpeciesMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Species name suggested", info);		
+	}
+
+	@Override
+	public void sendObservationRemovedSpeciesMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Species name deleted", info);
+	}
+
+	@Override
+	public void sendObservationCustomFieldUpdatedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Custom field edited", info);
+	}
+
+	@Override
+	public void sendObservationFeaturedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Featured observation", info);
+	}
+
+	@Override
+	public void sendObservationAddedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation added", info);		
+	}
+
+	@Override
+	public void sendObservationFlaggedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation flagged", info);		
+	}
+
+	@Override
+	public void sendObservationLockedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Validated and locked species name", info);		
+	}
+
+	@Override
+	public void sendObservationUpdatedMail(MailInfo info) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sendObservationUnlockedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Unlocked species name", info);			
+	}
+
+	@Override
+	public void sendObservationTagUpdatedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation tag updated", info);
+	}
+
 }
