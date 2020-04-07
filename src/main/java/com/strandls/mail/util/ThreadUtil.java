@@ -12,8 +12,7 @@ public class ThreadUtil {
 		TemplateUtil template = new TemplateUtil(configuration);
 		String content = template.getTemplateAsString(templateFile, info.getData());
 		String subject = info.getSubject();
-		String bcc = PropertyFileUtil.fetchProperty("config.properties", "mail_bcc");
-		MailThread mail = new MailThread(info.getTo(), (bcc == null || bcc.isEmpty()) ? new String[] {}: bcc.split(","),
+		MailThread mail = new MailThread(info.getTo(), new String[] {},
 				(subject == null || subject.isEmpty()) ? mailSubject : subject, content, true);
 		Thread thread = new Thread(mail);
 		thread.start();
