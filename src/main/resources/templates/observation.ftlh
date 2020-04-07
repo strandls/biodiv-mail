@@ -235,7 +235,7 @@ ${memberOf.name} <br>
 <tr>
 <td align="left">
 <p style="font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;margin-bottom:10px;font-weight:normal;font-size:12px;line-height:1">
-If you don't want to recieve notifications from our portal, please unsubscribe by logging into
+If you don't want to receive notifications from our portal, please unsubscribe by logging into
 <a href='${serverUrl}/user/show/<#if type=="DOWNLOAD_MAIL">${downloadMail.id?c}<#else>${follower.id?c}</#if>' style="font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif;color:#2ba6cb">
 <unsubscribe style="font-family:&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,Helvetica,Arial,sans-serif"> your profile</unsubscribe>
 </a>
