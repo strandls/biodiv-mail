@@ -204,12 +204,16 @@ For more information, please visit the page <a href="${serverUrl}/observation/sh
 <a style="padding:0 2px">The above observation is a member of the following groups: </a><a><br>
 </a>
 <#list whatPosted.userGroups as memberOf>
+<#if (memberOf.webAddress)??>
 <div style="height:30px;width:186px;border:1px solid #a1a376;background-color:#d4ece3;float:left;margin:2px 6px">
 <a href="${serverUrl}/${memberOf.webAddress}/show" style="text-decoration:none;color:#222222">
+<#if (memberOf.icon)??>
 <img src="${serverUrl}/biodiv/userGroups/${memberOf.icon}" style="width:30px;height:30px;vertical-align:middle">
+</#if>
 ${memberOf.name} <br>
 </a>
 </div>
+</#if>
 </#list>
 </div>
 </span>
