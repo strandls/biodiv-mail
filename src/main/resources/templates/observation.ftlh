@@ -128,7 +128,7 @@ Your data download request has been processed. The download link will be visible
 </p>
 <#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
 <p style="margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
-${commentBody}
+${commentBody?html}
 </p>
 </#if>
 <#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES">
@@ -137,12 +137,12 @@ ${commentBody}
 Given name is :
 <#if givenName.isScientificName==true>
 <#if givenName.id !=0>
-<a href="${serverUrl}/species/show/${givenName.id?c}"> <i> ${givenName.name} </i></a>
+<a href="${serverUrl}/species/show/${givenName.id?c}"> <i> ${givenName.name?html} </i></a>
 <#else>
-<i> ${givenName.name} </i>
+<i> ${givenName.name?html} </i>
 </#if>
 <#else>
-${givenName.name}
+${givenName.name?html}
 </#if>
 </p>
 <p></p>
@@ -185,7 +185,7 @@ You can log into your profile <a href="${serverUrl}/user/show/${downloadMail.id?
 <tr>
 <td style="margin:0;padding:2px">
 <p style="margin-bottom:0px;font-weight:normal;font-size:14px;line-height:1.4">
-<b>Name:</b> ${whatPosted.name}<br>
+<b>Name:</b> ${whatPosted.name?html}<br>
 <b>Location: </b> ${whatPosted.location}<br>
 <b>Observed On:</b> ${whatPosted.observedOn}<br>
 </p>
