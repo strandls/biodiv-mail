@@ -128,7 +128,7 @@ Your data download request has been processed. The download link will be visible
 </p>
 <#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
 <p style="margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
-${commentBody?html}
+${commentBody}
 </p>
 </#if>
 <#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES">
