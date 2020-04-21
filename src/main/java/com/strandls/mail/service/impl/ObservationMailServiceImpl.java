@@ -86,8 +86,7 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 
 	@Override
 	public void sendObservationUpdatedMail(MailInfo info) {
-		// TODO Auto-generated method stub
-		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation updated", info);
 	}
 
 	@Override
