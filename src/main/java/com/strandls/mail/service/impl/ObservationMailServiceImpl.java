@@ -71,7 +71,7 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 
 	@Override
 	public void sendObservationAddedMail(MailInfo info) {
-		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation added", info);		
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation added", info);	
 	}
 
 	@Override
@@ -98,6 +98,16 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 	@Override
 	public void sendObservationTagUpdatedMail(MailInfo info) {
 		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation tag updated", info);
+	}
+
+	@Override
+	public void sendObservationDeletedMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation deleted", info);
+	}
+
+	@Override
+	public void sendRatedMediaMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation media rated", info);		
 	}
 
 }

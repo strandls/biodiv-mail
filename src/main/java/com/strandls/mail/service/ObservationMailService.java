@@ -19,6 +19,8 @@ public interface ObservationMailService {
 	void sendObservationLockedMail(MailInfo info);
 	void sendObservationUpdatedMail(MailInfo info);
 	void sendObservationUnlockedMail(MailInfo info);
+	void sendObservationDeletedMail(MailInfo info);
+	void sendRatedMediaMail(MailInfo info);
 	void sendObservationTagUpdatedMail(MailInfo info);
 
 }

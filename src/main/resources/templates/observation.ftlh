@@ -44,11 +44,16 @@ Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
 added the following observation:
+<#elseif type=="OBSERVATION_DELETED">
+Hi ${follower.name},<br><br>
+<a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
+<a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
+deleted the following observation:
 <#elseif type=="OBSERVATION_UPDATED">
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
-updated the following observation
+updated the following observation:
 <#elseif type=="OBSERVATION_LOCKED">
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
@@ -92,6 +97,10 @@ Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
 flagged your observation
+<#elseif type=="RATED_MEDIA_RESOURCE">
+<a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
+<a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
+rated the following observation:
 <#elseif type=="AGREED_SPECIES">
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
@@ -131,7 +140,7 @@ Your data download request has been processed. The download link will be visible
 ${commentBody}
 </p>
 </#if>
-<#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES">
+<#if type=="SUGGEST_MAIL" || type=="OBSERVATION_ADDED" || type=="OBSERVATION_UPDATED" || type=="AGREED_SPECIES" || type=="REMOVED_SPECIES" || type=="OBSERVATION_DELETED" || type=="RATED_MEDIA_RESOURCE">
 <#if (givenName.isScientificName)?? && (givenName.name)?? && (givenName.id)??>
 <p style="margin:0;padding:5px;margin-bottom:2px;font-weight:normal;font-size:14px;line-height:1">
 Given name is :
@@ -205,7 +214,7 @@ For more information, please visit the page <a href="${serverUrl}/observation/sh
 </a>
 <#list whatPosted.userGroups as memberOf>
 <#if (memberOf.webAddress)??>
-<div style="height:30px;width:186px;border:1px solid #a1a376;background-color:#d4ece3;float:left;margin:2px 6px">
+<div style="height:30px;width:186px;border:1px solid #a1a376;background-color:#d4ece3;float:left;margin:2px 6px;text-overflow:ellipsis;">
 <a href="${serverUrl}/${memberOf.webAddress}/show" style="text-decoration:none;color:#222222">
 <#if (memberOf.icon)??>
 <img src="${serverUrl}/biodiv/userGroups/${memberOf.icon}" style="width:30px;height:30px;vertical-align:middle">

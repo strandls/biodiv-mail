@@ -113,6 +113,12 @@ public class RabbitMQConsumer {
 			case OBSERVATION_UPDATED:
 				observationService.sendObservationUpdatedMail(info);
 				break;
+			case OBSERVATION_DELETED:
+				observationService.sendObservationDeletedMail(info);
+				break;
+			case RATED_MEDIA_RESOURCE:
+				observationService.sendRatedMediaMail(info);
+				break;
 			case TAG_UPDATED:
 				observationService.sendObservationTagUpdatedMail(info);
 				break;
