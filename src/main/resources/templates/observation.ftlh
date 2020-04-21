@@ -98,6 +98,7 @@ Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
 flagged your observation
 <#elseif type=="RATED_MEDIA_RESOURCE">
+Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
 rated the following observation:
