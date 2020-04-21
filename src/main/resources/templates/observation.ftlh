@@ -101,7 +101,7 @@ flagged your observation
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
-rated the following observation:
+rated media
 <#elseif type=="AGREED_SPECIES">
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
