@@ -1,0 +1,7 @@
+Dear ${username},
+
+The images that you have uploaded to your "My Uploads" area on the India Biodiversity Portal on ${fromDate} are 
+due to expire tomorrow. If you do not utilize them these images will be cleared from your upload area on ${toDate}.
+
+Thank you,
+The Portal Team
