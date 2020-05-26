@@ -8,23 +8,26 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContextEvent;
 
+import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Scopes;
 import com.google.inject.servlet.GuiceServletContextListener;
+import com.google.inject.servlet.ServletModule;
 import com.rabbitmq.client.Channel;
 import com.strandls.mail.consumer.RabbitMQConsumer;
 import com.strandls.mail.consumer.RabbitMQConsumerModule;
 import com.strandls.mail.controller.MailControllerModule;
 import com.strandls.mail.service.impl.ServiceModule;
-import com.sun.jersey.guice.JerseyServletModule;
-import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
 /**
  * @author Abhishek Rudra
@@ -37,7 +40,7 @@ public class MailServeletContextListener extends GuiceServletContextListener {
 	@Override
 	protected Injector getInjector() {
 
-		Injector injector = Guice.createInjector(new JerseyServletModule() {
+		Injector injector = Guice.createInjector(new ServletModule() {
 			@Override
 			protected void configureServlets() {
 
@@ -53,8 +56,14 @@ public class MailServeletContextListener extends GuiceServletContextListener {
 				}
 
 				bind(Channel.class).toInstance(channel);
+				bind(ServletContainer.class).in(Scopes.SINGLETON);
+				Map<String, String> props = new HashMap<String, String>();
+				props.put("javax.ws.rs.Application", ApplicationConfig.class.getName());
+				props.put("jersey.config.server.provider.packages", "com");
+				props.put("jersey.config.server.wadl.disableWadl", "true");
 
-				serve("/api/*").with(GuiceContainer.class);
+
+				serve("/api/*").with(ServletContainer.class,props);
 			}
 		}, new MailControllerModule(), new RabbitMQConsumerModule(), new ServiceModule());
 		

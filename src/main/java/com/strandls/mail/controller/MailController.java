@@ -12,11 +12,14 @@ import javax.ws.rs.core.Response.Status;
 
 import com.strandls.mail.ApiConstants;
 
+import io.swagger.annotations.Api;
+
 /**
  * @author Abhishek Rudra
  *
  */
 
+@Api("mail service")
 @Path(ApiConstants.V1 + ApiConstants.SERIVCE)
 public class MailController {
 
