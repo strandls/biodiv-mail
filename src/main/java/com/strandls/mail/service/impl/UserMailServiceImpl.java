@@ -1,6 +1,7 @@
 package com.strandls.mail.service.impl;
 
-import com.google.inject.Inject;
+import javax.inject.Inject;
+
 import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.service.UserMailService;
 import com.strandls.mail.util.ThreadUtil;
