@@ -5,7 +5,7 @@
 	<groupId>com.strandls.biodiv</groupId>
 	<artifactId>mail</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>mail Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	
@@ -182,7 +182,7 @@
 		<dependency>
 		    <groupId>com.strandls.biodiv</groupId>
 		    <artifactId>mail-utility</artifactId>
-		    <version>0.0.1-SNAPSHOT</version>
+		    <version>1.0.0</version>
 		</dependency>	
 		
 	</dependencies>
