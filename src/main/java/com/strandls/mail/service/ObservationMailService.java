@@ -22,5 +22,6 @@ public interface ObservationMailService {
 	void sendObservationDeletedMail(MailInfo info);
 	void sendRatedMediaMail(MailInfo info);
 	void sendObservationTagUpdatedMail(MailInfo info);
+	void sendMyUploadsDeletionMail(MailInfo info);
 
 }

@@ -123,6 +123,9 @@ public class RabbitMQConsumer {
 			case TAG_UPDATED:
 				observationService.sendObservationTagUpdatedMail(info);
 				break;
+			case MY_UPLOADS_DELETE_MAIL:
+				observationService.sendMyUploadsDeletionMail(info);
+				break;
 			default:
 				logger.error("Invalid mail type: {}", info.getType());
 			}
