@@ -11,6 +11,7 @@ import com.rabbitmq.client.DeliverCallback;
 import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.model.NotificationInfo;
 import com.strandls.mail.service.ObservationMailService;
+import com.strandls.mail.service.UserGroupService;
 import com.strandls.mail.service.UserMailService;
 import com.strandls.mail.util.NotificationUtil;
 import com.strandls.mail.util.PropertyFileUtil;
@@ -24,6 +25,9 @@ public class RabbitMQConsumer {
 
 	@Inject
 	ObservationMailService observationService;
+	
+	@Inject
+	UserGroupService userGroupService;
 	
 	@Inject 
 	ObjectMapper mapper;
@@ -126,6 +130,8 @@ public class RabbitMQConsumer {
 			case MY_UPLOADS_DELETE_MAIL:
 				observationService.sendMyUploadsDeletionMail(info);
 				break;
+			case SEND_INVITE:
+				userGroupService.sendInvites(info);
 			default:
 				logger.error("Invalid mail type: {}", info.getType());
 			}
