@@ -25,7 +25,7 @@ public class UserGroupServiceImpl implements UserGroupService {
 
 	@Override
 	public void sendRequest(MailInfo info) {
-		ThreadUtil.startThread(configuration, "invite.ftlh", "Request to join as a member in group", info);
+		ThreadUtil.startThread(configuration, "request.ftlh", "Request to join as a member in group", info);
 	}
 
 }
