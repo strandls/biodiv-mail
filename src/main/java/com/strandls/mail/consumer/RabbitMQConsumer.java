@@ -133,6 +133,9 @@ public class RabbitMQConsumer {
 			case SEND_INVITE:
 				userGroupService.sendInvites(info);
 				break;
+			case SEND_REQUEST:
+				userGroupService.sendRequest(info);
+				break;
 			default:
 				logger.error("Invalid mail type: {}", info.getType());
 			}
