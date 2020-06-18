@@ -21,5 +21,5 @@ To deny, you need not perform any action.
 
 <br/><br/>
 
-Thank you,
+Thank you,<br/>
 The Portal Team
