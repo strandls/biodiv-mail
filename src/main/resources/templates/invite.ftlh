@@ -10,14 +10,12 @@ member in this
 </#if> group&nbsp; - 
 <a target="_blank" href="
 <#if group.webAddress?starts_with("/group")>
-${serverUrl}${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
+${serverUrl}${group.webAddress}/show
 <#else>
-${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
+${group.webAddress}
 </#if>
 ">${group.name}</a> on <strong>India Biodiversity Portal</strong>.
 <br/><br/>
-
-${encrypted_key}
 
 Please <a href="
 <#if group.webAddress?starts_with("/group")>
@@ -29,5 +27,5 @@ ${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
 
 <br/><br/>
 
-Thank you,
+Thank you,<br/>
 The Portal Team
