@@ -9,7 +9,7 @@ moderator for the
 member in this
 </#if> group&nbsp; - 
 <a target="_blank" href="
-<#if group.webAddress?startsWith("/group")>
+<#if group.webAddress?starts_with("/group")>
 ${serverUrl}${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
 <#else>
 ${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
@@ -18,7 +18,7 @@ ${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
 <br/><br/>
 
 Please <a href="
-<#if group.webAddress?startsWith("/group")>
+<#if group.webAddress?starts_with("/group")>
 ${serverUrl}${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
 <#else>
 ${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
