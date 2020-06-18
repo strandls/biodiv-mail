@@ -17,6 +17,8 @@ ${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
 ">${group.name}</a> on <strong>India Biodiversity Portal</strong>.
 <br/><br/>
 
+${encrypted_key}
+
 Please <a href="
 <#if group.webAddress?starts_with("/group")>
 ${serverUrl}${group.webAddress}/continue/verify-invitation?token=${encrypted_key}
