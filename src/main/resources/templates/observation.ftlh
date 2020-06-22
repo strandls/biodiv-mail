@@ -133,7 +133,8 @@ Hi ${downloadMail.name},<br><br>
 <a>
 <img style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle">
 </a>
-Your data download request has been processed. The download link will be visible once you log in to your profile.
+Your data download request has been processed. <br/><br/>
+<a href="${serverUrl}/download/requestfile?type=${download_type}&name=${download_file}" target="_blank">Click here</a> to start your download.
 </#if>
 </p>
 <#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
