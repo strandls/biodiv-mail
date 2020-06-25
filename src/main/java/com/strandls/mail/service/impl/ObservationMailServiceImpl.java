@@ -109,5 +109,10 @@ public class ObservationMailServiceImpl implements ObservationMailService {
 	public void sendRatedMediaMail(MailInfo info) {
 		ThreadUtil.startThread(configuration, "observation.ftlh", "Observation media rated", info);		
 	}
+	
+	@Override
+	public void sendMyUploadsDeletionMail(MailInfo info) {
+		ThreadUtil.startThread(configuration, "deletion.ftlh", "Attn: Your image uploads are due for deletion", info);
+	}
 
 }
