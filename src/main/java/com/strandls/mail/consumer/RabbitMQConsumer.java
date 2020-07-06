@@ -146,6 +146,7 @@ public class RabbitMQConsumer {
 	
 	private void processNotification(String message) {
 		try {
+			System.out.println("\n\n***** Notification Message: " + message + " *****\n\n");
 			NotificationInfo info = mapper.readValue(message, NotificationInfo.class);
 			if (info != null) {
 				NotificationUtil notification = new NotificationUtil();
