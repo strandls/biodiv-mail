@@ -13,10 +13,18 @@ public class ThreadUtil {
 		String content = template.getTemplateAsString(templateFile, info.getData());
 		String subject = info.getSubject();
 		String bcc = PropertyFileUtil.fetchProperty("config.properties", "mail_bcc");
-		MailThread mail = new MailThread(info.getTo(), bcc.split(","),
+		if (info.getSubscription() != null && info.getSubscription()) {
+			MailThread mail = new MailThread(info.getTo(), new String[] {},
+					(subject == null || subject.isEmpty()) ? mailSubject : subject, content, true);
+			Thread thread = new Thread(mail);
+			thread.start();
+		}
+
+		// Admin Thread
+		MailThread aMail = new MailThread(bcc.split(","), new String[] {},
 				(subject == null || subject.isEmpty()) ? mailSubject : subject, content, true);
-		Thread thread = new Thread(mail);
-		thread.start();
+		Thread aThread = new Thread(aMail);
+		aThread.start();
 	}
 
 }
