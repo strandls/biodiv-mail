@@ -24,6 +24,11 @@ Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
 added a comment to the page listed below.
+<#elseif type=="FACT_ADDED">
+Hi ${follower.name},<br><br>
+<a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
+<a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
+added a fact.
 <#elseif type=="FACT_UPDATED">
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
@@ -137,7 +142,7 @@ Your data download request has been processed. <br/><br/>
 <a href="${serverUrl}/files-api/api/get/download/requestfile?type=${download_type}&name=${download_file}" target="_blank">Click here</a> to start your download.
 </#if>
 </p>
-<#if type=="COMMENT_POST" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
+<#if type=="COMMENT_POST" || type=="FACT_ADDED" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
 <p style="margin-bottom:10px;font-weight:normal;font-size:14px;line-height:1">
 ${commentBody}
 </p>
