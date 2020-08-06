@@ -85,6 +85,9 @@ public class RabbitMQConsumer {
 			case POST_TO_GROUP:
 				observationService.sendObservationPostToGroupMail(info);
 				break;
+			case FACT_ADDED:
+				observationService.sendObservationFactAddedMail(info);
+				break;
 			case FACT_UPDATED:
 				observationService.sendObservationFactUpdatedMail(info);
 				break;
