@@ -1,6 +1,5 @@
 package com.strandls.mail.model;
 
-import java.util.Arrays;
 import java.util.Map;
 
 public class MailInfo {
@@ -43,7 +42,7 @@ public class MailInfo {
 	}
 	@Override
 	public String toString() {
-		return "MailInfo [type=" + type + ", subject=" + subject + ", data=" + data + ", to=" + Arrays.toString(to)
+		return "MailInfo [type=" + type + ", subject=" + subject + ", data=" + data + ", to=" + to
 				+ "]";
 	}
 

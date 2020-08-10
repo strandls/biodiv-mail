@@ -4,12 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
 import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.model.NotificationInfo;
+import com.strandls.mail.model.RecipientInfo;
 import com.strandls.mail.service.ObservationMailService;
 import com.strandls.mail.service.UserGroupService;
 import com.strandls.mail.service.UserMailService;
@@ -25,11 +30,11 @@ public class RabbitMQConsumer {
 
 	@Inject
 	ObservationMailService observationService;
-	
+
 	@Inject
 	UserGroupService userGroupService;
-	
-	@Inject 
+
+	@Inject
 	ObjectMapper mapper;
 
 	private static final Logger logger = LoggerFactory.getLogger(RabbitMQConsumer.class);
@@ -37,7 +42,7 @@ public class RabbitMQConsumer {
 	@Inject
 	private Channel channel;
 
-	public void getMessage() throws Exception {		
+	public void getMessage() throws Exception {
 		DeliverCallback callback = (consumerTag, delivery) -> {
 			String message = new String(delivery.getBody(), "UTF-8");
 			processMessage(message);
@@ -49,17 +54,29 @@ public class RabbitMQConsumer {
 		channel.basicConsume(PropertyFileUtil.fetchProperty("config.properties", "rabbitmq_queue"), true, callback,
 				consumerTag -> {
 				});
-		channel.basicConsume(PropertyFileUtil.fetchProperty("config.properties", "rabbitmq_n_queue"), true, notificationCallback,
-				consumerTag -> {
+		channel.basicConsume(PropertyFileUtil.fetchProperty("config.properties", "rabbitmq_n_queue"), true,
+				notificationCallback, consumerTag -> {
 				});
 	}
 
 	private void processMessage(String message) {
 		try {
 			System.out.println("***** Message: " + message + " *****");
-			MailInfo info = mapper.readValue(message, MailInfo.class);
+			RecipientInfo recipient = mapper.readValue(message, RecipientInfo.class);
+			List<MailInfo> info = new ArrayList<MailInfo>();
+			if (recipient.getRecipients() != null) {
+				recipient.getRecipients().forEach((r) -> {
+					MailInfo m = mapper.convertValue(r, MailInfo.class);
+					info.add(m);
+				});
+			}
 
-			MAIL_TYPE type = AppUtil.getMailType(info.getType());
+			if (info.size() == 0) {
+				logger.error("No recipients: {}", recipient.getRecipients());
+				return;
+			}
+
+			MAIL_TYPE type = AppUtil.getMailType(recipient.getType());
 			switch (type) {
 			case RESET_PASSWORD:
 				userService.sendResetPasswordMail(info);
@@ -97,10 +114,10 @@ public class RabbitMQConsumer {
 			case REMOVED_SPECIES:
 				observationService.sendObservationRemovedSpeciesMail(info);
 				break;
-			case CUSTOM_FIELD_UPDATED: 
+			case CUSTOM_FIELD_UPDATED:
 				observationService.sendObservationCustomFieldUpdatedMail(info);
 				break;
-			case FEATURED_POST: 
+			case FEATURED_POST:
 				observationService.sendObservationFeaturedMail(info);
 				break;
 			case FEATURED_POST_IBP:
@@ -109,7 +126,7 @@ public class RabbitMQConsumer {
 			case OBSERVATION_ADDED:
 				observationService.sendObservationAddedMail(info);
 				break;
-			case OBSERVATION_FLAGGED: 
+			case OBSERVATION_FLAGGED:
 				observationService.sendObservationFlaggedMail(info);
 				break;
 			case OBSERVATION_LOCKED:
@@ -140,20 +157,20 @@ public class RabbitMQConsumer {
 				userGroupService.sendRequest(info);
 				break;
 			default:
-				logger.error("Invalid mail type: {}", info.getType());
+				logger.error("Invalid mail type: {}", type);
 			}
 		} catch (Exception ex) {
 			logger.error("Could not resolve: {}", ex.getMessage());
 		}
 	}
-	
+
 	private void processNotification(String message) {
 		try {
 			System.out.println("\n\n***** Notification Message: " + message + " *****\n\n");
 			NotificationInfo info = mapper.readValue(message, NotificationInfo.class);
 			if (info != null) {
 				NotificationUtil notification = new NotificationUtil();
-				notification.sendNotification(message);				
+				notification.sendNotification(message);
 			}
 		} catch (Exception ex) {
 			logger.error("Could not resolve: {}", ex.getMessage());
