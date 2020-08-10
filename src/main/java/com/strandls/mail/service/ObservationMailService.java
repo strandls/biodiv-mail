@@ -1,28 +1,30 @@
 package com.strandls.mail.service;
 
+import java.util.List;
+
 import com.strandls.mail.model.MailInfo;
 
 public interface ObservationMailService {
 	
-	void sendObservationPostToGroupMail(MailInfo info);
-	void sendObservationTaggedMail(MailInfo info);
-	void sendObservationSuggestedMail(MailInfo info);
-	void sendObservationCommentedMail(MailInfo info);
-	void sendObservationDownloadMail(MailInfo info);
-	void sendObservationFactAddedMail(MailInfo info);
-	void sendObservationFactUpdatedMail(MailInfo info);
-	void sendObservationAgreedSpeciesMail(MailInfo info);
-	void sendObservationRemovedSpeciesMail(MailInfo info);
-	void sendObservationCustomFieldUpdatedMail(MailInfo info);
-	void sendObservationFeaturedMail(MailInfo info);
-	void sendObservationAddedMail(MailInfo info);
-	void sendObservationFlaggedMail(MailInfo info);
-	void sendObservationLockedMail(MailInfo info);
-	void sendObservationUpdatedMail(MailInfo info);
-	void sendObservationUnlockedMail(MailInfo info);
-	void sendObservationDeletedMail(MailInfo info);
-	void sendRatedMediaMail(MailInfo info);
-	void sendObservationTagUpdatedMail(MailInfo info);
-	void sendMyUploadsDeletionMail(MailInfo info);
+	void sendObservationPostToGroupMail(List<MailInfo> info);
+	void sendObservationTaggedMail(List<MailInfo> info);
+	void sendObservationSuggestedMail(List<MailInfo> info);
+	void sendObservationCommentedMail(List<MailInfo> info);
+	void sendObservationDownloadMail(List<MailInfo> info);
+	void sendObservationFactAddedMail(List<MailInfo> info);
+	void sendObservationFactUpdatedMail(List<MailInfo> info);
+	void sendObservationAgreedSpeciesMail(List<MailInfo> info);
+	void sendObservationRemovedSpeciesMail(List<MailInfo> info);
+	void sendObservationCustomFieldUpdatedMail(List<MailInfo> info);
+	void sendObservationFeaturedMail(List<MailInfo> info);
+	void sendObservationAddedMail(List<MailInfo> info);
+	void sendObservationFlaggedMail(List<MailInfo> info);
+	void sendObservationLockedMail(List<MailInfo> info);
+	void sendObservationUpdatedMail(List<MailInfo> info);
+	void sendObservationUnlockedMail(List<MailInfo> info);
+	void sendObservationDeletedMail(List<MailInfo> info);
+	void sendRatedMediaMail(List<MailInfo> info);
+	void sendObservationTagUpdatedMail(List<MailInfo> info);
+	void sendMyUploadsDeletionMail(List<MailInfo> info);
 
 }

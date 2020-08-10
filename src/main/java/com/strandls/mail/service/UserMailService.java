@@ -1,11 +1,13 @@
 package com.strandls.mail.service;
 
+import java.util.List;
+
 import com.strandls.mail.model.MailInfo;
 
 public interface UserMailService {
 	
-	void sendActivationMail(MailInfo info);
-	void sendWelcomeMail(MailInfo info);
-	void sendResetPasswordMail(MailInfo info);
+	void sendActivationMail(List<MailInfo> info);
+	void sendWelcomeMail(List<MailInfo> info);
+	void sendResetPasswordMail(List<MailInfo> info);
 
 }
