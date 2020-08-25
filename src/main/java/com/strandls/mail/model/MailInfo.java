@@ -1,6 +1,5 @@
 package com.strandls.mail.model;
 
-import java.util.Arrays;
 import java.util.Map;
 
 public class MailInfo {
@@ -9,6 +8,7 @@ public class MailInfo {
 	private String subject;
 	private Map<String, Object> data;
 	private String[] to;
+	private Boolean subscription;
 	
 	public String getType() {
 		return type;
@@ -34,9 +34,15 @@ public class MailInfo {
 	public void setTo(String[] to) {
 		this.to = to;
 	}
+	public Boolean getSubscription() {
+		return subscription;
+	}
+	public void setSubscription(Boolean subscription) {
+		this.subscription = subscription;
+	}
 	@Override
 	public String toString() {
-		return "MailInfo [type=" + type + ", subject=" + subject + ", data=" + data + ", to=" + Arrays.toString(to)
+		return "MailInfo [type=" + type + ", subject=" + subject + ", data=" + data + ", to=" + to
 				+ "]";
 	}
 

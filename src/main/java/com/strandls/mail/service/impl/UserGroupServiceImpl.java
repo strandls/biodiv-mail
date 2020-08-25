@@ -1,5 +1,7 @@
 package com.strandls.mail.service.impl;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.strandls.mail.model.MailInfo;
@@ -14,9 +16,9 @@ public class UserGroupServiceImpl implements UserGroupService {
 	private Configuration configuration;
 
 	@Override
-	public void sendInvites(MailInfo info) {
+	public void sendInvites(List<MailInfo> info) {
 		try {
-			String role = info.getData().get("role").toString();
+			String role = info.get(0).getData().get("role").toString();
 			ThreadUtil.startThread(configuration, "invite.ftlh", "Invitation to join as " + role + " for group", info);
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -24,7 +26,7 @@ public class UserGroupServiceImpl implements UserGroupService {
 	}
 
 	@Override
-	public void sendRequest(MailInfo info) {
+	public void sendRequest(List<MailInfo> info) {
 		ThreadUtil.startThread(configuration, "request.ftlh", "Request to join as a member in group", info);
 	}
 
