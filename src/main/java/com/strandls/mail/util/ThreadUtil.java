@@ -1,5 +1,6 @@
 package com.strandls.mail.util;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.strandls.mail.model.MailInfo;
@@ -18,7 +19,10 @@ public class ThreadUtil {
 			for (MailInfo info : recipients) {
 				content = template.getTemplateAsString(templateFile, info.getData());
 				subject = info.getSubject();
-				if (info.getSubscription() != null && info.getSubscription()) {
+				boolean containsIBP = Arrays.asList(info.getTo()).stream().anyMatch(id -> {
+					return id.contains("ibp.org");
+				});
+				if (info.getSubscription() != null && info.getSubscription() && !containsIBP) {
 					MailThread mail = new MailThread(info.getTo(), new String[] {},
 							(subject == null || subject.isEmpty()) ? mailSubject : subject, content, true);
 					Thread thread = new Thread(mail);
