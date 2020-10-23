@@ -91,7 +91,7 @@ ${givenName.name}
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
-featured observation in: ${serverUrl} ${where.webAddress} <a href="
+featured observation in: <a href="
 <#if where.webAddress?starts_with("/group")>
 ${serverUrl}${where.webAddress}/show
 <#else>
@@ -128,7 +128,7 @@ Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
 <#if submitType=="post">posted<#else>removed </#if> observation <#if submitType=="post">to<#else>from </#if> group
-&nbsp; ${serverUrl} ${where.webAddress} <a href="
+&nbsp;<a href="
 <#if where.webAddress?starts_with("/group")>
 ${serverUrl}${where.webAddress}/show
 <#else>
