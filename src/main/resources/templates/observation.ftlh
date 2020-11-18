@@ -139,7 +139,15 @@ Hi ${downloadMail.name},<br><br>
 <img style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle">
 </a>
 Your data download request has been processed. <br/><br/>
-<a href="${serverUrl}/data-archive/listpagecsv/${download_file}" target="_blank">Click here</a> to start your download.
+<a href="
+${serverUrl}
+<#if download_type?lowercase == "naksha">
+${download_file}
+<#else>
+/data-archive/listpagecsv/${download_file}
+</#if>
+" target="_blank">
+Click here</a> to start your download.
 </#if>
 </p>
 <#if type=="COMMENT_POST" || type=="FACT_ADDED" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
