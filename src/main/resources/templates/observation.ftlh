@@ -150,7 +150,13 @@ Hi ${downloadMail.name},<br><br>
 <a>
 <img style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle">
 </a>
-Your data download request has been processed. <br/><br/>
+Your 
+<#if download_type?lower_case == "naksha">
+map 
+<#else>
+data 
+</#if>
+download request has been processed. <br/><br/>
 <a href="
 ${serverUrl}
 <#if download_type?lower_case == "naksha">
