@@ -158,7 +158,7 @@ ${download_file}
 <#else>
 /data-archive/listpagecsv/${download_file}
 </#if>
-" target="_blank">
+" target="_blank"> 
 Click here</a> to start your download.
 </#if>
 </p>
