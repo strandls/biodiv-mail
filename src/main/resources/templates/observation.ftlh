@@ -153,7 +153,7 @@ Hi ${downloadMail.name},<br><br>
 Your data download request has been processed. <br/><br/>
 <a href="
 ${serverUrl}
-<#if download_type?lowercase == "naksha">
+<#if download_type?lower_case == "naksha">
 ${download_file}
 <#else>
 /data-archive/listpagecsv/${download_file}
