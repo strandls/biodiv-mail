@@ -154,6 +154,24 @@ ${download_file}
 </#if>
 " target="_blank">
 Click here</a> to start your download.
+<br><br>
+If you experience a problem with the link above, please copy and paste the following link into your browser:
+<br>
+<a href="
+${serverUrl}
+<#if download_type?lower_case == "naksha">
+${download_file}
+<#else>
+/data-archive/listpagecsv/${download_file}
+</#if>
+" target="_blank">
+${serverUrl}
+<#if download_type?lower_case == "naksha">
+${download_file}
+<#else>
+/data-archive/listpagecsv/${download_file}
+</#if>
+</a>
 </#if>
 </p>
 <#if type=="COMMENT_POST" || type=="FACT_ADDED" || type=="FACT_UPDATED" || type=="TAG_UPDATED" || type=="CUSTOM_FIELD_UPDATED" || type=="FEATURED_POST" || type=="FEATURED_POST_IBP" || type=="OBSERVATION_FLAGGED">
