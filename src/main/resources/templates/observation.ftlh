@@ -158,19 +158,9 @@ Click here</a> to start your download.
 If you experience a problem with the link above, please copy and paste the following link into your browser:
 <br>
 <a href="
-${serverUrl}
-<#if download_type?lower_case == "naksha">
-${download_file}
-<#else>
-/data-archive/listpagecsv/${download_file}
-</#if>
+${serverUrl}<#if download_type?lower_case == "naksha">${download_file}<#else>/data-archive/listpagecsv/${download_file}</#if>
 " target="_blank">
-${serverUrl}
-<#if download_type?lower_case == "naksha">
-${download_file}
-<#else>
-/data-archive/listpagecsv/${download_file}
-</#if>
+${serverUrl}<#if download_type?lower_case == "naksha">${download_file}<#else>/data-archive/listpagecsv/${download_file}</#if>
 </a>
 </#if>
 </p>
