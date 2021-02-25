@@ -20,8 +20,13 @@ public class ThreadUtil {
 			for (MailInfo info : recipients) {
 
 				Map<String, Object> data = info.getData();
+				System.out.println(info.toString());
+
 				data.put("siteName", PropertyFileUtil.fetchProperty("config.properties", "siteName"));
 				data.put("serverUrl", PropertyFileUtil.fetchProperty("config.properties", "serverUrl"));
+
+				info.setData(data);
+				System.out.println(info.toString());
 
 				content = template.getTemplateAsString(templateFile, data);
 				subject = info.getSubject();
