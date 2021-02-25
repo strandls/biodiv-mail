@@ -14,7 +14,7 @@ ${serverUrl}${group.webAddress}/show
 <#else>
 ${group.webAddress}
 </#if>
-">${group.name}</a> on <strong>India Biodiversity Portal</strong>.
+">${group.name}</a> on <strong> ${siteName} </strong>.
 <br/><br/>
 
 Please <a href="

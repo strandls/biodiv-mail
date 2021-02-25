@@ -96,7 +96,7 @@ featured observation in: <a href="${serverUrl}/group/${where.webAddress}/show"><
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"> ${whoPosted.name}</a>
-featured observation in: India Biodiversity Portal
+featured observation in: ${siteName}
 <#elseif type=="OBSERVATION_FLAGGED">
 Hi ${follower.name},<br><br>
 <a href="${serverUrl}/user/show/${whoPosted.id?c}"><img src="${serverUrl}/files-api/api/get/raw/users${whoPosted.icon}" style="max-width:30px;max-height:30px;display:inline-block;vertical-align:middle"></a>

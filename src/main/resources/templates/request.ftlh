@@ -8,7 +8,7 @@ ${serverUrl}${group.webAddress}/show
 ${group.webAddress}
 </#if>
 " target="_blank">${group.name}</a>
-which you are an administrator of on the India Biodiversity Portal.<br/><br/>
+which you are an administrator of on the ${siteName}.<br/><br/>
 
 Please <a href="
 <#if group.webAddress?starts_with("/group")>
