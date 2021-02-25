@@ -2,6 +2,7 @@ package com.strandls.mail.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.thread.MailThread;
@@ -17,7 +18,12 @@ public class ThreadUtil {
 		String content = "";
 		if (recipients != null) {
 			for (MailInfo info : recipients) {
-				content = template.getTemplateAsString(templateFile, info.getData());
+
+				Map<String, Object> data = info.getData();
+				data.put("siteName", PropertyFileUtil.fetchProperty("config.properties", "siteName"));
+				data.put("serverUrl", PropertyFileUtil.fetchProperty("config.properties", "serverUrl"));
+
+				content = template.getTemplateAsString(templateFile, data);
 				subject = info.getSubject();
 				boolean containsIBP = Arrays.asList(info.getTo()).stream().anyMatch(id -> {
 					return id.contains("ibp.org");
