@@ -234,7 +234,7 @@ You can log into your profile <a href="${serverUrl}/user/show/${downloadMail.id?
 </div>
 <div style="margin:0 auto;padding:10px 0;max-width:600px;display:block;background-color:#d4ece3;clear:both">
 <p style=" 5px;margin-bottom:2px;font-weight:normal;font-size:14px;line-height:1;background-color:#d4ece3">
-For more information, please visit the page <a href="${serverUrl}/observation/show/${whatPosted.id?c}" style="color:#2ba6cb;font-weight:bold" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://${serverUrl}/observation/show/1770256&amp;source=gmail&amp;ust=1521876944507000&amp;usg=AFQjCNHfSiPtayrlu3f6rjTjXtG-1Hr4eg">here »</a>
+For more information, please visit the page <a href="${serverUrl}/observation/show/${whatPosted.id?c}" style="color:#2ba6cb;font-weight:bold" target="_blank" data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://${serverUrl}/observation/show/1770256&amp;source=gmail&amp;ust=1521876944507000&amp;usg=AFQjCNHfSiPtayrlu3f6rjTjXtG-1Hr4eg">here</a>
 </p>
 </div>
 </div>
