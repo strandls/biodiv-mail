@@ -1,14 +1,1 @@
-Hi ${username},<br/><br/>
-You (or someone pretending to be you) 
-<#if type=="RESET_PASSWORD">
-	requested that your password be reset.<br/><br/>
-	OTP: <b>${otp}</b><br/><br/>
-	If you didn't make this request then ignore the email; no changes have been made.<br/><br/>
-	If you did make the request, enter the otp to reset your password.<br/><br/>
-<#else>
-	created an account with this email address.<br/><br/>
-	OTP: <b>${otp}</b><br/><br/>
-	If you made the request, please enter the otp to finish the registration and activate your account.<br/><br/>
-</#if>
-Regards,<br/>
-The portal team.
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="width: 100% !important" ><tbody><tr><td align="center"><table style=" border: 1px solid #d1d1d1; border-radius: 5px; margin: 40px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #2d3748; " width="600" border="0" cellspacing="0" cellpadding="0" ><tbody><tr><td align="center" style="padding: 0;"><div style=" text-align: left; width: 100%; font-size: 18px; line-height: 1.4; " ><div style="padding: 40px 60px"><#if type=="RESET_PASSWORD"><h1 style=" font-size: 30px; font-weight: bold; padding: 0; line-height: 1; margin-bottom: 32px; " > Reset Your Passsword </h1><p>Hello ${username},</p><p> You (or someone pretending to be you) requested that your password be reset. </p><p> If you have made this request, enter below OTP to reset your password. </p><div style=" font-family: monospace; font-size: 32px; margin: 32px 0; line-height: 1; " > ${otp} </div><#else><h1 style=" font-size: 30px; font-weight: bold; padding: 0; line-height: 1; margin-bottom: 32px; " > Verify Your email </h1><p>Hello ${username},</p><p> You (or someone pretending to be you) created an account with this email address. </p><p> If you made the request, please enter below OTP to finish the registration and activate your account. </p><div style=" font-family: monospace; font-size: 32px; margin: 32px 0; line-height: 1; " > ${otp} </div><p> If you didn't make this request then ignore the email; no changes have been made. </p></#if><p> Regards,<br /> The ${siteName} Team. </p></div></div></td></tr></tbody></table></td></tr></tbody></table>
