@@ -27,6 +27,9 @@ public class ThreadUtil {
 				String iconUrl = data.get("whatPosted.icon").toString();
 				iconUrl = iconUrl.replace("_th1.", ".");
 				data.put("whatPosted.icon", iconUrl);
+				String userIcon = data.get("whoPosted.icon").toString();
+				userIcon = userIcon.replace("_gall_th.", ".");
+				data.put("whoPosted.icon", userIcon);
 
 				info.setData(data);
 				System.out.println(info.toString());
