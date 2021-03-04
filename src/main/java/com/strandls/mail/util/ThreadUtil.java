@@ -21,27 +21,34 @@ public class ThreadUtil {
 			for (MailInfo info : recipients) {
 
 				Map<String, Object> data = info.getData();
-				System.out.println("Before manipulation");
-				System.out.println(info.toString());
+				if (data != null) {
+					System.out.println("Before manipulation");
+					System.out.println(info.toString());
 
-				data.put("siteName", PropertyFileUtil.fetchProperty("config.properties", "siteName"));
-				data.put("serverUrl", PropertyFileUtil.fetchProperty("config.properties", "serverUrl"));
+					data.put("siteName", PropertyFileUtil.fetchProperty("config.properties", "siteName"));
+					data.put("serverUrl", PropertyFileUtil.fetchProperty("config.properties", "serverUrl"));
 
-				Map<String, Object> whatPosted = (Map<String, Object>) data.get("whatPosted");
-				String iconUrl = whatPosted.get("icon").toString();
-				iconUrl = iconUrl.replace("_th1.", ".");
-				whatPosted.put("icon", iconUrl);
-				data.put("whatPosted", whatPosted);
+					Map<String, Object> whatPosted = (Map<String, Object>) data.get("whatPosted");
+					if (whatPosted != null) {
+						String iconUrl = whatPosted.get("icon").toString();
+						iconUrl = iconUrl.replace("_th1.", ".");
+						whatPosted.put("icon", iconUrl);
+						data.put("whatPosted", whatPosted);
+					}
 
-				Map<String, Object> whoPosted = (Map<String, Object>) data.get("whoPosted");
-				String userIcon = whoPosted.get("icon").toString();
-				userIcon = userIcon.replace("_gall_th.", ".");
-				whoPosted.put("icon", userIcon);
-				data.put("whoPosted", whoPosted);
+					Map<String, Object> whoPosted = (Map<String, Object>) data.get("whoPosted");
+					if (whoPosted != null) {
+						String userIcon = whoPosted.get("icon").toString();
+						userIcon = userIcon.replace("_gall_th.", ".");
+						whoPosted.put("icon", userIcon);
+						data.put("whoPosted", whoPosted);
+					}
 
-				info.setData(data);
-				System.out.println("After manipulation");
-				System.out.println(info.toString());
+					info.setData(data);
+					System.out.println("After manipulation");
+					System.out.println(info.toString());
+
+				}
 
 				content = template.getTemplateAsString(templateFile, data);
 				subject = info.getSubject();
