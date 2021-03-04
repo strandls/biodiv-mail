@@ -24,6 +24,9 @@ public class ThreadUtil {
 
 				data.put("siteName", PropertyFileUtil.fetchProperty("config.properties", "siteName"));
 				data.put("serverUrl", PropertyFileUtil.fetchProperty("config.properties", "serverUrl"));
+				String iconUrl = data.get("whatPosted.icon").toString();
+				iconUrl = iconUrl.replace("_th1.", ".");
+				data.put("whatPosted.icon", iconUrl);
 
 				info.setData(data);
 				System.out.println(info.toString());
