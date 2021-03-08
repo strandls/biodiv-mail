@@ -3,6 +3,7 @@
  */
 package com.strandls.mail;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -28,25 +29,31 @@ import com.strandls.mail.consumer.RabbitMQConsumer;
 import com.strandls.mail.consumer.RabbitMQConsumerModule;
 import com.strandls.mail.controller.MailControllerModule;
 import com.strandls.mail.service.impl.ServiceModule;
+import com.strandls.mail.util.PropertyFileUtil;
+import com.strandls.mail.util.TemplateUtil;
+import com.strandls.mail.util.ThreadUtil;
+
+import freemarker.template.Configuration;
 
 /**
  * @author Abhishek Rudra
  *
  */
 public class MailServeletContextListener extends GuiceServletContextListener {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(MailServeletContextListener.class);
 
 	@Override
 	protected Injector getInjector() {
 
 		Injector injector = Guice.createInjector(new ServletModule() {
+			@SuppressWarnings("deprecation")
 			@Override
 			protected void configureServlets() {
 
 				ObjectMapper objectMapper = new ObjectMapper();
 				bind(ObjectMapper.class).toInstance(objectMapper);// Rabbit MQ initialization
-				
+
 				RabbitMqConnection rabbitConnetion = new RabbitMqConnection();
 				Channel channel = null;
 				try {
@@ -62,11 +69,22 @@ public class MailServeletContextListener extends GuiceServletContextListener {
 				props.put("jersey.config.server.provider.packages", "com");
 				props.put("jersey.config.server.wadl.disableWadl", "true");
 
+				Configuration configuration = new Configuration();
+				String path = PropertyFileUtil.fetchProperty("config.properties", "mail_template_path");
+				try {
+					configuration.setDirectoryForTemplateLoading(new File(path));
+				} catch (IOException e) {
+					logger.error(e.getMessage());
+				}
+				bind(Configuration.class).toInstance(configuration);
+				bind(TemplateUtil.class).in(Scopes.SINGLETON);
+				bind(ThreadUtil.class).in(Scopes.SINGLETON);
 
-				serve("/api/*").with(ServletContainer.class,props);
+				bind(ServletContainer.class).in(Scopes.SINGLETON);
+				serve("/api/*").with(ServletContainer.class, props);
 			}
 		}, new MailControllerModule(), new RabbitMQConsumerModule(), new ServiceModule());
-		
+
 		try {
 			injector.getInstance(RabbitMQConsumer.class).getMessage();
 		} catch (Exception ex) {

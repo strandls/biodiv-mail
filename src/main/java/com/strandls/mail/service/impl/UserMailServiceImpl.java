@@ -10,29 +10,27 @@ import com.strandls.mail.service.UserMailService;
 import com.strandls.mail.util.PropertyFileUtil;
 import com.strandls.mail.util.ThreadUtil;
 
-import freemarker.template.Configuration;
-
 public class UserMailServiceImpl implements UserMailService {
 
 	@Inject
-	private Configuration configuration;
+	private ThreadUtil threadUtil;
 
 	private Properties props = PropertyFileUtil.fetchProperty("config.properties");
 	String portalName = props.getProperty("siteName");
 
 	@Override
 	public void sendActivationMail(List<MailInfo> info) {
-		ThreadUtil.startThread(configuration, "auth.ftlh", "Activate your account with " + portalName, info);
+		threadUtil.startThread("auth.ftlh", "Activate your account with " + portalName, info);
 	}
 
 	@Override
 	public void sendWelcomeMail(List<MailInfo> info) {
-		ThreadUtil.startThread(configuration, "welcome.ftlh", "Welcome to " + portalName, info);
+		threadUtil.startThread("welcome.ftlh", "Welcome to " + portalName, info);
 	}
 
 	@Override
 	public void sendResetPasswordMail(List<MailInfo> info) {
-		ThreadUtil.startThread(configuration, "auth.ftlh", "Reset password with " + portalName, info);
+		threadUtil.startThread("auth.ftlh", "Reset password with " + portalName, info);
 	}
 
 }

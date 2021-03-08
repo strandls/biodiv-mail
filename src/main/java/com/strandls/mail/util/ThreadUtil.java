@@ -4,17 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.thread.MailThread;
 
-import freemarker.template.Configuration;
-
 public class ThreadUtil {
 
+	@Inject
+	private TemplateUtil templateUtil;
+
 	@SuppressWarnings("unchecked")
-	public static void startThread(Configuration configuration, String templateFile, String mailSubject,
-			List<MailInfo> recipients) {
-		TemplateUtil template = new TemplateUtil(configuration);
+	public void startThread(String templateFile, String mailSubject, List<MailInfo> recipients) {
 		String subject = "";
 		String content = "";
 		if (recipients != null) {
@@ -50,7 +51,7 @@ public class ThreadUtil {
 
 				}
 
-				content = template.getTemplateAsString(templateFile, data);
+				content = templateUtil.getTemplateAsString(templateFile, data);
 				subject = info.getSubject();
 				boolean containsIBP = Arrays.asList(info.getTo()).stream().anyMatch(id -> {
 					return id.contains("ibp.org");
