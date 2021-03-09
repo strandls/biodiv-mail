@@ -8,18 +8,16 @@ import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.service.UserGroupService;
 import com.strandls.mail.util.ThreadUtil;
 
-import freemarker.template.Configuration;
-
 public class UserGroupServiceImpl implements UserGroupService {
 
 	@Inject
-	private Configuration configuration;
+	private ThreadUtil threadUtil;
 
 	@Override
 	public void sendInvites(List<MailInfo> info) {
 		try {
 			String role = info.get(0).getData().get("role").toString();
-			ThreadUtil.startThread(configuration, "invite.ftlh", "Invitation to join as " + role + " for group", info);
+			threadUtil.startThread("invite.ftlh", "Invitation to join as " + role + " for group", info);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -27,7 +25,7 @@ public class UserGroupServiceImpl implements UserGroupService {
 
 	@Override
 	public void sendRequest(List<MailInfo> info) {
-		ThreadUtil.startThread(configuration, "request.ftlh", "Request to join as a member in group", info);
+		threadUtil.startThread("request.ftlh", "Request to join as a member in group", info);
 	}
 
 }

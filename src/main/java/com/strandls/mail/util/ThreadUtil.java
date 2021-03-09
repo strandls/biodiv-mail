@@ -2,22 +2,56 @@ package com.strandls.mail.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
 
 import com.strandls.mail.model.MailInfo;
 import com.strandls.mail.thread.MailThread;
 
-import freemarker.template.Configuration;
-
 public class ThreadUtil {
 
-	public static void startThread(Configuration configuration, String templateFile, String mailSubject,
-			List<MailInfo> recipients) {
-		TemplateUtil template = new TemplateUtil(configuration);
+	@Inject
+	private TemplateUtil templateUtil;
+
+	@SuppressWarnings("unchecked")
+	public void startThread(String templateFile, String mailSubject, List<MailInfo> recipients) {
 		String subject = "";
 		String content = "";
 		if (recipients != null) {
 			for (MailInfo info : recipients) {
-				content = template.getTemplateAsString(templateFile, info.getData());
+
+				Map<String, Object> data = info.getData();
+				if (data != null) {
+					System.out.println("Before manipulation");
+					System.out.println(info.toString());
+
+					data.put("siteName", PropertyFileUtil.fetchProperty("config.properties", "siteName"));
+					data.put("serverUrl", PropertyFileUtil.fetchProperty("config.properties", "serverUrl"));
+
+					Map<String, Object> whatPosted = (Map<String, Object>) data.get("whatPosted");
+					if (whatPosted != null) {
+						String iconUrl = whatPosted.get("icon").toString();
+						iconUrl = iconUrl.replace("_th1.", ".");
+						whatPosted.put("icon", iconUrl);
+						data.put("whatPosted", whatPosted);
+					}
+
+					Map<String, Object> whoPosted = (Map<String, Object>) data.get("whoPosted");
+					if (whoPosted != null) {
+						String userIcon = whoPosted.get("icon").toString();
+						userIcon = userIcon.replace("_gall_th.", ".");
+						whoPosted.put("icon", userIcon);
+						data.put("whoPosted", whoPosted);
+					}
+
+					info.setData(data);
+					System.out.println("After manipulation");
+					System.out.println(info.toString());
+
+				}
+
+				content = templateUtil.getTemplateAsString(templateFile, data);
 				subject = info.getSubject();
 				boolean containsIBP = Arrays.asList(info.getTo()).stream().anyMatch(id -> {
 					return id.contains("ibp.org");
