@@ -6,8 +6,8 @@
 	<artifactId>mail</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>mail Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>biodiv-mail</name>
+	<url>https://github.com/strandls/biodiv-mail</url>
 
 	<properties>
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
