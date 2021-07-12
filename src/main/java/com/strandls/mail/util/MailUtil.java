@@ -56,6 +56,7 @@ public class MailUtil {
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.ssl.trust", "*");
 		props.put("mail.debug", "true");
+		props.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
 		Session session = Session.getInstance(props, new Authenticator() {
 			@Override
